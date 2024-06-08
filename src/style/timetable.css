@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Poppins";
+}
+
+body {
+  width: 100%;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  background: rgb(197, 245, 245);
+}
+
+.navbar-timetable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar-timetable h2 {
+  margin: 0 10rem;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navbar-timetable h2:hover {
+  text-decoration: underline;
+}
+
+.search-timetable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-timetable input {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 0 10px;
+  height: 30px;
+  width: 40%;
+  height: 25px;
+}
+
+.search-timetable input::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.day-week {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 10px;
+  height: 605px;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+.day-week h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 243px;
+  margin-top: 20px;
+}
+
+.group-number {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.group-number h2 {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+
+.group-number button {
+  display: flex;
+  width: 50px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.name-teacher {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name-teacher button {
+  display: flex;
+  width: 50px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.name-teacher input {
+  border: 1px solid black;
+}
+
+.group-number input {
+  border: 1px solid black;
+}
+
+.name-teacher h2 {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+
+textarea {
+  margin-top: 20px;
+  height: 350px;
+  width: 615px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  font-size: 0.8rem;
+}
+
+footer p {
+  cursor: pointer;
+}
+
+footer p:hover {
+  text-decoration: underline;
+}

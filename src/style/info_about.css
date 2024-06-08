@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(197, 245, 245);
+}
+
+.info-about-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 550px;
+  height: 485px;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 230px;
+}
+
+.info-about-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.info-about-mid {
+  margin-top: 20px;
+}
+
+.info-about-btn button {
+  font-family: "Poppins";
+  border: none;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 15px;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.4s linear;
+  cursor: pointer;
+  width: 500px;
+  text-align: center;
+}
+.info-about-btn button:hover {
+  transform: translateY(-3px);
+}
+
+p,
+label {
+  font-weight: 800;
+}
+
+.info-about-mid input {
+  border: 2px solid rgb(216, 216, 216);
+  border-radius: 5px;
+  height: 25px;
+  padding: 5px;
+  height: 30px;
+}
+
+.info-about-mid select {
+  border: 2px solid rgb(216, 216, 216);
+  border-radius: 5px;
+  height: 30px;
+}
+
+.info-about-mid input:focus,
+.info-about-mid select:focus {
+  outline: none;
+}

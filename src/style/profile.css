@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: rgb(197, 245, 245);
+}
+
+.navbar-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar-profile h2 {
+  margin: 0 10rem;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navbar-profile h2:hover {
+  text-decoration: underline;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-profile input {
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 0 10px;
+}
+
+.search-profile input::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.settings-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  height: 610px;
+  background-color: #ffffff;
+  margin-left: 34.5%;
+  margin-top: 10px;
+}
+
+.image-upload {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.image-upload img {
+  max-width: 80%;
+  max-height: 80%;
+  display: block;
+  margin: auto;
+}
+
+.settings-profile .photo-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-profile .photo-profile h2 {
+  margin: 0; /* Remove margin */
+}
+
+.type {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-profile h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+.qq {
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.photo-profile h2 {
+  font-weight: 100;
+}
+
+.btn_settings {
+  width: 120px;
+  height: 30px;
+  background: rgb(244, 255, 255);
+  color: black;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.links {
+  margin-bottom: 10px;
+}
+
+footer p {
+  cursor: pointer;
+}
+
+.footer-bottom-profile {
+  margin-top: 10px;
+}
+
+footer p:hover {
+  text-decoration: underline;
+}
