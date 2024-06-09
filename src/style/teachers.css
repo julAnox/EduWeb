@@ -105,14 +105,15 @@ body {
 .ava-teachers {
   width: 70px;
   height: 70px;
-  background-color: black;
   border-radius: 50%;
+  margin-left: 40px;
+  align-items: center;
+  background-color: #00000042;
 }
 
 .prepod-teachers {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 50px;
   flex-direction: row;
   margin-top: 20px;
@@ -130,14 +131,6 @@ body {
   color: black;
   margin-top: 10px;
   cursor: pointer;
-}
-
-footer {
-  margin-top: 20px;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 20px 0;
-  text-align: center;
 }
 
 footer {

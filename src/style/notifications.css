@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: rgb(197, 245, 245);
+}
+
+.navbar-notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar-notifications h2 {
+  margin: 0 10rem;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navbar-notifications h2:hover {
+  text-decoration: underline;
+}
+
+.search-notifications {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-notifications input {
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 0 10px;
+}
+
+.search-notifications input::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+footer {
+  margin-top: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.links {
+  margin-bottom: 10px;
+}
+
+footer p {
+  cursor: pointer;
+}
+
+.footer-bottom-notifications {
+  margin-top: 10px;
+}
+
+footer p:hover {
+  text-decoration: underline;
+}

@@ -21,7 +21,9 @@ function Teachers() {
         <Link to="/timetable">
           <h2>Timetable</h2>
         </Link>
-        <h2>Notifications</h2>
+        <Link to="/notifications">
+          <h2>Notifications</h2>
+        </Link>
         <Link to="/profile">
           <h2>Profile</h2>
         </Link>
@@ -31,7 +33,10 @@ function Teachers() {
       </div>
       <div className="main-teachers">
         <div className="all-teachers">
-          <img src="https://avatars.mds.yandex.net/get-altay/933207/2a000001617229fd7d076a20e92a71d88ff5/L_height" />
+          <img
+            src="https://avatars.mds.yandex.net/get-altay/933207/2a000001617229fd7d076a20e92a71d88ff5/L_height"
+            alt=""
+          />
           <div className="info-teachers">
             <h2>Name of educational institution:</h2>
             <p>"MGKCT"</p>
@@ -54,7 +59,7 @@ function Teachers() {
           {teachers.map((teacher) => (
             <div className="prepod-teachers" key={teacher.id}>
               <div className="ava-teachers">
-                <img src={teacher.img_path} alt={teacher.name} />
+                <img src={teacher.img_path} alt="" />
               </div>
               <div className="edu-teachers">
                 <h2>{teacher.name}</h2>

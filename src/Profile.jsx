@@ -19,7 +19,9 @@ function Profile() {
         <Link to="/timetable">
           <h2>Timetable</h2>
         </Link>
-        <h2>Notifications</h2>
+        <Link to="/notifications">
+          <h2>Notifications</h2>
+        </Link>
         <h2>Profile</h2>
       </div>
       <div className="search-profile">

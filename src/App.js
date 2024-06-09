@@ -9,6 +9,7 @@ import Email from "./Email";
 import Info_about from "./Info_about";
 import Success from "./Success";
 import Profile from "./Profile";
+import Notifications from "./Notifications";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/notifications" element={<Notifications />} />
         </Routes>
       </div>
     </Router>

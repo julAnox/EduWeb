@@ -122,9 +122,6 @@ footer {
   color: #000000;
   padding: 20px 0;
   text-align: center;
-}
-
-footer {
   display: flex;
   align-items: center;
   justify-content: center;
