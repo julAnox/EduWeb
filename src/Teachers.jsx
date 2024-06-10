@@ -14,7 +14,6 @@ function Teachers() {
 
   return (
     <>
-      {/* хуй */}
       <div className="navbar-teachers">
         <Link to="/posts">
           <h2>Home</h2>
