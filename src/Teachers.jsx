@@ -6,7 +6,7 @@ function Teachers() {
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
-    fetch("http://193.168.49.29:8000/api/get_teachers/")
+    fetch("https://hostnes.space/api/get_teachers/")
       .then((response) => response.json())
       .then((data) => setTeachers(data))
       .catch((error) => console.error("Error fetching teachers:", error));
