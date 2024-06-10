@@ -1,16 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./style/teachers.css";
 
 function Teachers() {
   const [teachers, setTeachers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredTeachers, setFilteredTeachers] = useState([]);
+  const teacherRefs = useRef({});
 
   useEffect(() => {
     fetch("http://193.168.49.29:8080//api/get_teachers/")
       .then((response) => response.json())
-      .then((data) => setTeachers(data))
+      .then((data) => {
+        setTeachers(data);
+        setFilteredTeachers(data);
+      })
       .catch((error) => console.error("Error fetching teachers:", error));
   }, []);
+
+  useEffect(() => {
+    if (searchQuery.length >= 3) {
+      const filtered = teachers.filter((teacher) =>
+        teacher.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredTeachers(filtered);
+    } else {
+      setFilteredTeachers(teachers);
+    }
+  }, [searchQuery, teachers]);
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleTeacherClick = (teacherId) => {
+    const teacherElement = teacherRefs.current[teacherId];
+    teacherElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    teacherElement.classList.add("highlight");
+    setTimeout(() => {
+      teacherElement.classList.remove("highlight");
+    }, 1000);
+
+    setSearchQuery("");
+  };
 
   return (
     <>
@@ -29,13 +62,31 @@ function Teachers() {
         </Link>
       </div>
       <div className="search-teachers">
-        <input type="text" placeholder="Search here..." />
+        <input
+          type="text"
+          placeholder="Search here..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+        {searchQuery.length >= 3 && (
+          <div className="search-suggestions-teachers">
+            {filteredTeachers.map((teacher) => (
+              <div
+                key={teacher.id}
+                className="suggestion"
+                onClick={() => handleTeacherClick(teacher.id)}
+              >
+                {teacher.name}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="main-teachers">
         <div className="all-teachers">
           <img
             src="https://avatars.mds.yandex.net/get-altay/933207/2a000001617229fd7d076a20e92a71d88ff5/L_height"
-            alt=""
+            alt="Institution"
           />
           <div className="info-teachers">
             <h2>Name of educational institution:</h2>
@@ -57,9 +108,17 @@ function Teachers() {
         </div>
         <div className="teachers-grid">
           {teachers.map((teacher) => (
-            <div className="prepod-teachers" key={teacher.id}>
+            <div
+              className="prepod-teachers"
+              key={teacher.id}
+              ref={(el) => (teacherRefs.current[teacher.id] = el)}
+            >
               <div className="ava-teachers">
-                <img src={teacher.img_path} alt="" className="ava" />
+                <img
+                  src={teacher.img_path}
+                  alt={teacher.name}
+                  className="ava"
+                />
               </div>
               <div className="edu-teachers">
                 <h2>{teacher.name}</h2>

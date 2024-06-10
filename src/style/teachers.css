@@ -32,6 +32,7 @@ body {
 }
 
 .search-teachers {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,6 +87,48 @@ body {
   border-radius: 50%;
   align-items: center;
   display: flex;
+}
+
+.search-suggestions-teachers {
+  margin-top: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  max-height: 50px;
+}
+
+.search-suggestions-teachers .suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-suggestions-teachers .suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-teacher {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.highlight {
+  animation: highlight-animation 4s;
+  transition: ease all 1s;
+}
+
+@keyframes highlight-animation {
+  from {
+    background-color: rgb(165, 241, 145);
+  }
+  to {
+    background-color: white;
+  }
 }
 
 .swap-pages-teachers {

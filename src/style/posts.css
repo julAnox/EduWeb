@@ -33,10 +33,45 @@ body {
 }
 
 .search-posts-custom {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
+
+.search-suggestions {
+  margin-top: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #acacac;
+  z-index: 1000;
+  max-height: 50px;
+}
+
+.search-suggestions .suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-suggestions .suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+.highlight {
+  animation: highlight-animation 4s;
+}
+
+@keyframes highlight-animation {
+  from {
+    background-color: rgb(165, 241, 145);
+  }
+  to {
+    background-color: white;
+  }
 }
 
 .search-posts-custom input {
