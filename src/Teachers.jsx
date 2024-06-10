@@ -6,7 +6,7 @@ function Teachers() {
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
-    fetch("https://hostnes.space/api/get_teachers/")
+    fetch("http://193.168.49.29:8000/api/get_teachers/")
       .then((response) => response.json())
       .then((data) => setTeachers(data))
       .catch((error) => console.error("Error fetching teachers:", error));
@@ -59,7 +59,7 @@ function Teachers() {
           {teachers.map((teacher) => (
             <div className="prepod-teachers" key={teacher.id}>
               <div className="ava-teachers">
-                <img src={teacher.img_path} alt="" />
+                <img src={teacher.img_path} alt="" className="ava" />
               </div>
               <div className="edu-teachers">
                 <h2>{teacher.name}</h2>

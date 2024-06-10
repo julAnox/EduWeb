@@ -73,10 +73,18 @@ body {
   font-size: 1.2em;
 }
 
-.main-teachers img {
+.all-teachers img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+.ava {
+  width: 90px;
+  height: 90px;
+  margin-left: 40px;
+  border-radius: 50%;
+  align-items: center;
 }
 
 .swap-pages-teachers {
@@ -100,15 +108,6 @@ body {
   grid-template-columns: (4, 1fr);
   gap: 20px;
   margin-bottom: 20px;
-}
-
-.ava-teachers {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin-left: 40px;
-  align-items: center;
-  background-color: #00000042;
 }
 
 .prepod-teachers {
