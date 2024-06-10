@@ -133,9 +133,15 @@ function Teachers() {
       <footer>
         <div className="footer-content-teachers">
           <div className="links1">
-            <p>Home</p>
-            <p>Schedule</p>
-            <p>Contacts</p>
+            <Link to="/posts">
+              <p>Home</p>
+            </Link>
+            <Link to="/timetable">
+              <p>Timetable</p>
+            </Link>
+            <a href="https://t.me/deqoia">
+              <p>Contacts</p>
+            </a>
           </div>
           <p>Created by Nikita Ermolenko</p>
         </div>

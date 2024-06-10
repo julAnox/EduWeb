@@ -145,8 +145,12 @@ function Posts() {
         <div className="footer-content-posts-custom">
           <div>
             <p>Home</p>
-            <p>Schedule</p>
-            <p>Contacts</p>
+            <Link to="/timetable">
+              <p>Timetable</p>
+            </Link>
+            <a href="https://t.me/deqoia">
+              <p>Contacts</p>
+            </a>
           </div>
           <p>Created by Nikita Ermolenko</p>
         </div>

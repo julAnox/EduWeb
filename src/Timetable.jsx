@@ -199,9 +199,13 @@ function Timetable() {
       <footer>
         <div className="footer-content">
           <div>
-            <p>Home</p>
-            <p>Schedule</p>
-            <p>Contacts</p>
+            <Link to="/posts">
+              <p>Home</p>
+            </Link>
+            <p>Timetable</p>
+            <a href="https://t.me/deqoia">
+              <p>Contacts</p>
+            </a>
           </div>
           <p>Created by Nikita Ermolenko</p>
         </div>
