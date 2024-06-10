@@ -19,10 +19,6 @@ function Notifications() {
           <h2>Profile</h2>
         </Link>
       </div>
-      <div className="search-profile">
-        <input type="text" placeholder="Search here..." />
-      </div>
-
       <footer>
         <div className="footer-content-profile">
           <div className="links">

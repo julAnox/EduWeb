@@ -31,24 +31,6 @@ body {
   text-decoration: underline;
 }
 
-.search-notifications {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.search-notifications input {
-  height: 30px;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  padding: 0 10px;
-}
-
-.search-notifications input::placeholder {
-  color: rgb(0, 0, 0);
-}
-
 footer {
   margin-top: 20px;
   background-color: #ffffff;

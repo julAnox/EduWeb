@@ -24,9 +24,6 @@ function Profile() {
         </Link>
         <h2>Profile</h2>
       </div>
-      <div className="search-profile">
-        <input type="text" placeholder="Search here..." />
-      </div>
       <div className="settings-profile">
         <h2>Profile information</h2>
         <h2 className="qq">Profile picture</h2>

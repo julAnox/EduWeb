@@ -141,13 +141,6 @@ function Timetable() {
           <h2>Profile</h2>
         </Link>
       </div>
-      <div className="search-timetable">
-        <input
-          type="text"
-          placeholder="Search here..."
-          onChange={(e) => setGroupNumber(e.target.value)}
-        />
-      </div>
       <div className="day-week">
         <h2>Timetable for groups or teachers</h2>
         <div className="all">

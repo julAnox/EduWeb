@@ -35,33 +35,13 @@ body {
   text-decoration: underline;
 }
 
-.search-timetable {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.search-timetable input {
-  background-color: rgb(255, 255, 255);
-  border: none;
-  padding: 0 10px;
-  height: 30px;
-  width: 40%;
-  height: 25px;
-}
-
-.search-timetable input::placeholder {
-  color: rgb(0, 0, 0);
-}
-
 .day-week {
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: white;
-  margin-top: 10px;
-  height: 605px;
+  margin-top: 20px;
+  height: 640px;
   font-size: 0.9em;
   width: 100%;
 }
@@ -128,7 +108,7 @@ body {
 
 textarea {
   margin-top: 20px;
-  height: 350px;
+  height: 375px;
   width: 615px;
 }
 
