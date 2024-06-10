@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./style/timetable.css";
 
 function Timetable() {
-  const groupApiUrl = "https://hostnes.space/api/get_groups_data/";
-  const teacherApiUrl = "https://hostnes.space/api/get_week_data_by_teacher";
+  const groupApiUrl = "http://193.168.49.29:8080/api/get_groups_data/";
+  const teacherApiUrl =
+    "http://193.168.49.29:8080/api/get_week_data_by_teacher";
   const date = new Date();
   const options = { weekday: "long" };
   const dayOfWeek = date.toLocaleString("en-US", options);

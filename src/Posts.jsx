@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./style/posts.css";
 
 function Posts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://193.168.49.29:8080/api/posts/")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching posts:", error));
+  }, []);
+
+  const formatDateTime = (dateTime) => {
+    const date = new Date(dateTime);
+    const formattedDate = date.toLocaleDateString("en-GB");
+    const formattedTime = date.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return `${formattedDate} ${formattedTime}`;
+  };
+
   return (
     <>
       <div className="navbar-posts-custom">
@@ -24,7 +43,10 @@ function Posts() {
       </div>
       <div className="main-posts-custom">
         <div className="all-posts-custom">
-          <img src="https://avatars.mds.yandex.net/get-altay/933207/2a000001617229fd7d076a20e92a71d88ff5/L_height" />
+          <img
+            src="https://avatars.mds.yandex.net/get-altay/933207/2a000001617229fd7d076a20e92a71d88ff5/L_height"
+            alt="Institution"
+          />
           <div className="info-posts-custom">
             <h2>Name of educational institution:</h2>
             <p>"MGKCT"</p>
@@ -44,36 +66,24 @@ function Posts() {
           </Link>
         </div>
         <div className="posts-all-posts-custom">
-          <div className="post-posts-custom">
-            <div className="photo-posts-custom"></div>
-            <h2>News</h2>
-            <div className="text-posts-custom">
-              <p>
-                On June 3 and 4, 2024, director G.V. Kozel held meetings with
-                college students on the topics “Prevention of crimes and
-                offenses” and “Security.” Georgy Vladimirovich explained the
-                responsibility for inciting racial, national, religious or other
-                social hatred; familiarized students with Article 19.10 of the
-                Code of the Republic of Belarus on administrative offenses.
-              </p>
-              <button className="button">Show post</button>
+          {posts.map((post) => (
+            <div key={post.id} className="post-posts-custom">
+              {post.img_path && (
+                <div className="photo-posts-custom">
+                  <img
+                    src={post.img_path}
+                    alt={post.title}
+                    className="post_img"
+                  />
+                </div>
+              )}
+              <h2>{post.title}</h2>
+              <div className="text-posts-custom">
+                <p>{post.description}</p>
+                <p className="date">Date: {formatDateTime(post.date_posted)}</p>
+              </div>
             </div>
-          </div>
-          <div className="post-posts-custom">
-            <div className="photo-posts-custom"></div>
-            <h2>News</h2>
-            <div className="text-posts-custom">
-              <p>
-                On June 3 and 4, 2024, director G.V. Kozel held meetings with
-                college students on the topics “Prevention of crimes and
-                offenses” and “Security.” Georgy Vladimirovich explained the
-                responsibility for inciting racial, national, religious or other
-                social hatred; familiarized students with Article 19.10 of the
-                Code of the Republic of Belarus on administrative offenses.
-              </p>
-              <button className="button">Show post</button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <footer className="footer-posts-custom">

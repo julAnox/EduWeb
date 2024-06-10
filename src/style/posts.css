@@ -71,14 +71,19 @@ body {
   margin-top: 10px;
 }
 
-.main-posts-custom h2 {
-  font-size: 1.2em;
-}
-
-.main-posts-custom img {
+.all-posts-custom img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+.post_img {
+  width: 320px;
+  height: 200px;
+}
+
+.main-posts-custom h2 {
+  font-size: 1.2em;
 }
 
 .swap-pages-posts-custom {
@@ -104,13 +109,6 @@ body {
   margin-bottom: 20px;
 }
 
-.photo-posts-custom {
-  width: 100px;
-  height: 80px;
-  background-color: black;
-  border-radius: 10px;
-}
-
 .post-posts-custom {
   display: flex;
   align-items: center;
@@ -118,20 +116,23 @@ body {
   gap: 20px;
   flex-direction: column;
   margin-top: 20px;
-  width: 450px;
+  width: 700px;
   background: rgb(197, 245, 245);
   padding-top: 10px;
   padding-bottom: 10px;
   padding: 30px;
 }
 
-.text-posts-custom button {
-  width: 120px;
-  height: 30px;
-  background: rgb(244, 255, 255);
-  color: black;
+.text-posts-custom p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.date {
   margin-top: 10px;
-  cursor: pointer;
+  font-weight: 100;
 }
 
 .footer-posts-custom {
