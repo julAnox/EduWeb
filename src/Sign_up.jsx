@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style/sign_up.css";
 
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (password !== repeatPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const userData = {
+      email: email,
+      password: password,
+    };
+
+    console.log("Submitting user data:", userData);
+
+    try {
+      const response = await fetch("http://193.168.49.29:8080/api/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to create account: ${errorText}`);
+      }
+
+      localStorage.setItem("userEmail", email);
+      navigate("/info_about");
+    } catch (error) {
+      console.error("Error creating account:", error);
+    }
+  };
+
   return (
     <div className="flex-r container-sign-up">
       <div className="flex-r login-wrapper-sign-up">
@@ -12,44 +54,56 @@ function SignUp() {
             Please enter your E-mail address, then create your own account
             password.
           </p>
-          <form className="flex-c">
+          <form className="flex-c" onSubmit={handleSubmit}>
             <div className="input-box-sign-up">
               <span className="label-sign-up">E-mail</span>
               <div className="flex-r input-sign-up">
-                <input type="text" placeholder="name@abc.com" />
+                <input
+                  type="text"
+                  placeholder="name@abc.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
                 <i className="fas fa-at"></i>
               </div>
             </div>
             <div className="input-box-sign-up">
               <span className="label-sign-up">Password</span>
               <div className="flex-r input-sign-up">
-                <input type="password" placeholder="create a password" />
+                <input
+                  type="password"
+                  placeholder="create a password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
                 <i className="fas fa-lock"></i>
               </div>
             </div>
             <div className="input-box1-sign-up">
               <span className="label-sign-up">Repeat password</span>
               <div className="flex-r input1-sign-up">
-                <input type="password" placeholder="create a password" />
+                <input
+                  type="password"
+                  placeholder="repeat your password"
+                  value={repeatPassword}
+                  onChange={(e) => setRepeatPassword(e.target.value)}
+                  required
+                />
                 <i className="fas fa-lock"></i>
               </div>
             </div>
             <div className="check-sign-up">
-              <input type="checkbox" />
-              <span>I've read and agree with all of instructions</span>
+              <input type="checkbox" required />
+              <span>I've read and agree with all of the instructions</span>
             </div>
-            <Link to="/info_about">
-              <input
-                className="btn-sign-up"
-                type="submit"
-                value="Create an Account"
-              />
-            </Link>
+            <button className="btn-sign-up" type="submit">
+              Create an Account
+            </button>
             <span className="extra-line-sign-up">
               <span>Already have an account?</span>
-              <Link to="/log_in">
-                <a>Log In</a>
-              </Link>
+              <Link to="/log_in">Log In</Link>
             </span>
           </form>
         </div>
