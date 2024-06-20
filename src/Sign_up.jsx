@@ -38,7 +38,7 @@ function SignUp() {
               <input type="checkbox" />
               <span>I've read and agree with all of instructions</span>
             </div>
-            <Link to="/email">
+            <Link to="/info_about">
               <input
                 className="btn-sign-up"
                 type="submit"
