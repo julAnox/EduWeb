@@ -15,15 +15,6 @@ function InfoAbout() {
         <input type="text" className="info-about-input" />
         <br />
 
-        <label htmlFor="userRole">Who you are?</label>
-        <br />
-        <select id="userRole" className="info-about-select">
-          <option>Student</option>
-          <option>Teacher</option>
-          <option>Director</option>
-        </select>
-        <br />
-
         <label htmlFor="educational">Select educational institution</label>
         <br />
         <select id="educational" className="info-about-select">
