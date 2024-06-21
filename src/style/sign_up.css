@@ -89,16 +89,19 @@ input {
   border-radius: 30px;
   padding: 10px 15px;
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-size: 16px;
   transition: all 0.4s linear;
   cursor: pointer;
+  border: none;
 }
 .btn-sign-up:hover {
   transform: translateY(-5px);
 }
 .extra-line-sign-up {
+  display: flex;
+  gap: 10px;
   font-size: 15px;
   font-weight: 600;
 }

@@ -31,7 +31,7 @@
 .login-text-login {
   background-color: #f6f6f6;
   max-width: 400px;
-  min-height: 400px;
+  min-height: 300px;
   border-radius: 10px;
   padding: 10px 20px;
 }
@@ -91,18 +91,22 @@ form {
 }
 
 .btn-login-custom {
+  display: flex;
   color: #ffffff;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   height: 40px;
-  width: 100%;
+  width: 50%;
   border-radius: 30px;
   padding: 10px 55px;
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 16px;
   transition: all 0.4s linear;
   cursor: pointer;
+  border: none;
 }
 
 .btn-login-custom:hover {
@@ -110,6 +114,8 @@ form {
 }
 
 .extra-line-login {
+  display: flex;
+  gap: 10px;
   font-size: 15px;
   font-weight: 600;
 }
