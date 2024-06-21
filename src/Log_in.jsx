@@ -30,9 +30,9 @@ function LogIn() {
       }
 
       const responseData = await response.json();
-      localStorage.setItem("userToken", responseData.token); // Assuming your backend sends a token upon successful login
+      localStorage.setItem("userToken", responseData.token);
 
-      navigate("/profile"); // Redirect to profile page after successful login
+      navigate("/profile");
     } catch (error) {
       console.error("Error logging in:", error);
     }

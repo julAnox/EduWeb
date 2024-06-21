@@ -60,6 +60,10 @@ body {
   margin: auto;
 }
 
+span {
+  font-weight: 600;
+}
+
 .settings-profile .photo-profile {
   display: flex;
   align-items: center;

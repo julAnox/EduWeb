@@ -4,7 +4,7 @@ import "./style/notifications.css";
 
 function Notifications() {
   return (
-    <>
+    <div className="pp">
       <div className="navbar-profile">
         <Link to="/posts">
           <h2>Home</h2>
@@ -19,6 +19,7 @@ function Notifications() {
           <h2>Profile</h2>
         </Link>
       </div>
+      <div className="uvedi"></div>
       <footer>
         <div className="footer-content-profile">
           <div className="links">
@@ -38,7 +39,7 @@ function Notifications() {
           <p>© 2024 All rights reserved</p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 

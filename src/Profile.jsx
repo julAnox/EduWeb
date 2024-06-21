@@ -4,7 +4,7 @@ import "./style/profile.css";
 
 function Profile() {
   const [imageFile, setImageFile] = useState(null);
-  const [imageSrc, setImageSrc] = useState("default-profile-pic.png");
+  const [imageSrc, setImageSrc] = useState(".img/user.png");
   const [userData, setUserData] = useState({
     name: "",
     surname: "",
@@ -99,20 +99,21 @@ function Profile() {
           </div>
           <div className="type">
             <h2>
-              Name: <span>{userData.name}</span>
+              Name: <span>&nbsp;&nbsp;{userData.name}</span>
+            </h2>
+
+            <h2>
+              Surname: <span>&nbsp;&nbsp;{userData.surname}</span>
             </h2>
             <h2>
-              Surname: <span>{userData.surname}</span>
-            </h2>
-            <h2>
-              Father's name: <span>{userData.father_name}</span>
+              Father's name: <span>&nbsp;&nbsp;{userData.father_name}</span>
             </h2>
             <h2>
               Educational institution:{" "}
-              <span>{userData.education_institution}</span>
+              <span>&nbsp;&nbsp;{userData.education_institution}</span>
             </h2>
             <h2>
-              Group: <span>{userData.group}</span>
+              Group: <span>&nbsp;&nbsp;{userData.group}</span>
             </h2>
           </div>
         </div>
