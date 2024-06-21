@@ -13,7 +13,7 @@ function Success() {
         notification to your email that you have been verified and will be able
         to use the application.
       </p>
-      <Link to="/posts">
+      <Link to="/profile">
         <button className="button-success">Go to your personal account</button>
       </Link>
     </div>

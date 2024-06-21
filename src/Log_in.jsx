@@ -1,8 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./style/log_in.css";
 
 function LogIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await fetch("http://193.168.49.29:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to log in: ${errorText}`);
+      }
+
+      const responseData = await response.json();
+      localStorage.setItem("userToken", responseData.token); // Assuming your backend sends a token upon successful login
+
+      navigate("/profile"); // Redirect to profile page after successful login
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  };
+
   return (
     <>
       <div className="flex-r container-login">
@@ -14,7 +49,7 @@ function LogIn() {
               <br />
               We are glad that you chose us! Log In here...
             </p>
-            <form className="flex-c">
+            <form className="flex-c" onSubmit={handleSubmit}>
               <div className="input-box-login">
                 <span className="label-login">E-mail</span>
                 <div className="flex-r input-login">
@@ -22,6 +57,9 @@ function LogIn() {
                     type="text"
                     placeholder="name@abc.com"
                     className="login-input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                   <i className="fas fa-at"></i>
                 </div>
@@ -33,22 +71,19 @@ function LogIn() {
                     type="password"
                     placeholder="enter your password"
                     className="login-input"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                   <i className="fas fa-lock"></i>
                 </div>
               </div>
-              <Link to="/posts">
-                <input
-                  className="btn-login-custom"
-                  type="submit"
-                  value="Log In"
-                />
-              </Link>
+              <button className="btn-login-custom" type="submit">
+                Log In
+              </button>
               <span className="extra-line-login">
                 <span>Don't have an account?</span>
-                <Link to="/sign_up">
-                  <a>Sign Up</a>
-                </Link>
+                <Link to="/sign_up">Sign Up</Link>
               </span>
             </form>
           </div>

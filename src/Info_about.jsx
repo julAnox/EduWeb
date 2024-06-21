@@ -13,7 +13,11 @@ function InfoAbout() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const userRegData = JSON.parse(localStorage.getItem("userData"));
+
     const userData = {
+      email: userRegData.email,
+      password: userRegData.password,
       name: name,
       surname: surname,
       father_name: fatherName,
@@ -34,12 +38,13 @@ function InfoAbout() {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(`Failed to continue registration: ${errorText}`);
+        throw new Error(`Failed to save user: ${errorText}`);
       }
 
-      localStorage.setItem("userData", JSON.stringify(userData));
+      const responseData = await response.json();
+      localStorage.setItem("userData", JSON.stringify(responseData));
 
-      navigate("/profile");
+      navigate("/success");
     } catch (error) {
       console.error("Error continuing registration:", error);
     }

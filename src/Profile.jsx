@@ -6,13 +6,11 @@ function Profile() {
   const [imageFile, setImageFile] = useState(null);
   const [imageSrc, setImageSrc] = useState("mgkct.png");
   const [userData, setUserData] = useState({
-    id: null, // Add an ID field to identify the user profile
     name: "",
     surname: "",
     father_name: "",
     group: "",
     education_institution: "",
-    img_path: "",
   });
 
   const navigate = useNavigate();
@@ -45,16 +43,8 @@ function Profile() {
         formData.append("img_path", imageFile);
       }
 
-      let url = "http://193.168.49.29:8080/api/users/";
-      let method = "POST";
-
-      if (userData.id) {
-        url += userData.id + "/";
-        method = "PUT";
-      }
-
-      const response = await fetch(url, {
-        method: method,
+      const response = await fetch("http://193.168.49.29:8080/api/users/", {
+        method: "POST",
         body: formData,
       });
 
@@ -66,7 +56,7 @@ function Profile() {
       const responseData = await response.json();
       localStorage.setItem("userData", JSON.stringify(responseData));
 
-      navigate("/profile"); // Ensure navigation to the profile page after saving
+      navigate("/profile");
     } catch (error) {
       console.error("Error saving profile:", error);
     }

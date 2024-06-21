@@ -22,23 +22,8 @@ function SignUp() {
       password: password,
     };
 
-    console.log("Submitting user data:", userData);
-
     try {
-      const response = await fetch("http://193.168.49.29:8080/api/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to create account: ${errorText}`);
-      }
-
-      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userData", JSON.stringify(userData));
       navigate("/info_about");
     } catch (error) {
       console.error("Error creating account:", error);
