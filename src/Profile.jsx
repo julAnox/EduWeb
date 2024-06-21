@@ -4,7 +4,7 @@ import "./style/profile.css";
 
 function Profile() {
   const [imageFile, setImageFile] = useState(null);
-  const [imageSrc, setImageSrc] = useState("mgkct.png");
+  const [imageSrc, setImageSrc] = useState("default-profile-pic.png");
   const [userData, setUserData] = useState({
     name: "",
     surname: "",
@@ -25,15 +25,17 @@ function Profile() {
     }
   }, []);
 
-  function loadImage(event) {
+  const loadImage = (event) => {
     const file = event.target.files[0];
     setImageFile(file);
     setImageSrc(URL.createObjectURL(file));
-  }
+  };
 
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
+      formData.append("email", userData.email);
+      formData.append("password", userData.password);
       formData.append("name", userData.name);
       formData.append("surname", userData.surname);
       formData.append("father_name", userData.father_name);
@@ -62,6 +64,11 @@ function Profile() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    navigate("/sign_up");
+  };
+
   return (
     <>
       <div className="navbar-profile">
@@ -77,11 +84,10 @@ function Profile() {
         <h2>Profile</h2>
       </div>
       <div className="settings-profile">
-        <h2>Profile information</h2>
-        <h2 className="qq">Profile picture</h2>
+        <h2 className="mm">Profile information</h2>
         <div className="photo-profile">
           <div className="image-upload">
-            <img id="preview" src={imageSrc} alt="your image" />
+            <img id="preview" src={imageSrc} alt="Profile" />
             <input
               className="img-input"
               type="file"
@@ -112,6 +118,9 @@ function Profile() {
         </div>
         <button className="btn_settings" onClick={handleSubmit}>
           Apply
+        </button>
+        <button className="btn_settings" onClick={handleLogout}>
+          Log Out
         </button>
       </div>
       <footer>

@@ -23,7 +23,7 @@ function SignUp() {
     };
 
     try {
-      localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("userRegData", JSON.stringify(userData));
       navigate("/info_about");
     } catch (error) {
       console.error("Error creating account:", error);

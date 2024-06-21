@@ -13,41 +13,20 @@ function InfoAbout() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const userRegData = JSON.parse(localStorage.getItem("userData"));
+    const userRegData = JSON.parse(localStorage.getItem("userRegData"));
 
     const userData = {
       email: userRegData.email,
       password: userRegData.password,
-      name: name,
-      surname: surname,
+      name,
+      surname,
       father_name: fatherName,
-      group: group,
+      group,
       education_institution: educationInstitution,
     };
 
-    console.log("Submitting user data:", userData);
-
-    try {
-      const response = await fetch("http://193.168.49.29:8080/api/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to save user: ${errorText}`);
-      }
-
-      const responseData = await response.json();
-      localStorage.setItem("userData", JSON.stringify(responseData));
-
-      navigate("/success");
-    } catch (error) {
-      console.error("Error continuing registration:", error);
-    }
+    localStorage.setItem("userData", JSON.stringify(userData));
+    navigate("/success");
   };
 
   return (

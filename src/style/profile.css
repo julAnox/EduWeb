@@ -20,6 +20,10 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
+.mm {
+  margin-bottom: 20px;
+}
+
 .navbar-profile h2 {
   margin: 0 10rem;
   color: black;
