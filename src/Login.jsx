@@ -16,7 +16,7 @@ function Login() {
     };
 
     try {
-      const response = await fetch("http://193.168.49.29:8080/api/auth/login", {
+      const response = await fetch("http://193.168.49.29:8080/api/users/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
