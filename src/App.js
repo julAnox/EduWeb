@@ -22,6 +22,7 @@ function App() {
           <Route path="/success" element={<Success />} />
           <Route path="/timetable" element={<Timetable />} />
           <Route path="/teachers" element={<Teachers />} />
+          <Route path="/posts/:postId?" element={<Posts />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />

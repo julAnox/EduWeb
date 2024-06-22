@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./style/posts.css";
 
 function Posts() {
+  const { postId } = useParams();
   const [posts, setPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -28,6 +29,18 @@ function Posts() {
       setFilteredPosts(posts);
     }
   }, [searchQuery, posts]);
+
+  useEffect(() => {
+    if (postId && postRefs.current[postId]) {
+      const postElement = postRefs.current[postId];
+      postElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      postElement.classList.add("highlight");
+      setTimeout(() => {
+        postElement.classList.remove("highlight");
+      }, 1000);
+    }
+  }, [postId, filteredPosts]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

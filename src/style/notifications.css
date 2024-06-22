@@ -40,6 +40,32 @@
   margin-top: 20px;
 }
 
+.notification-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item.unread {
+  background-color: #f9f9f9;
+}
+
+.notification-item.read {
+  background-color: #e0e0e0;
+}
+
+.notification-item h3 {
+  margin: 0 0 5px;
+}
+
+.notification-item p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
 footer {
   width: 100%;
   margin-top: 20px;
