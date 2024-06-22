@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./style/sign_up.css";
+import "./style/signup.css";
 
-function Sign_Up() {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -25,7 +25,7 @@ function Sign_Up() {
 
     try {
       localStorage.setItem("userRegData", JSON.stringify(userData));
-      navigate("/info_about");
+      navigate("/infoabout");
     } catch (error) {
       console.error("Error creating account:", error);
     }
@@ -89,7 +89,7 @@ function Sign_Up() {
             </button>
             <span className="extra-line-sign-up">
               <span>Already have an account?</span>
-              <Link to="/log_in">Log In</Link>
+              <Link to="/login">Log In</Link>
             </span>
           </form>
         </div>
@@ -98,4 +98,4 @@ function Sign_Up() {
   );
 }
 
-export default Sign_Up;
+export default Signup;

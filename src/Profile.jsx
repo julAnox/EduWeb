@@ -66,7 +66,7 @@ function Profile() {
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
-    navigate("/sign_up");
+    navigate("/signup");
   };
 
   return (

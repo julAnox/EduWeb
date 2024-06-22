@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style/info_about.css";
+import "./style/infoabout.css";
 
-function InfoAbout() {
+function Infoabout() {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -85,4 +85,4 @@ function InfoAbout() {
   );
 }
 
-export default InfoAbout;
+export default Infoabout;

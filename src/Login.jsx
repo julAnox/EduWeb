@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./style/log_in.css";
+import "./style/login.css";
 
-function LogIn() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ function LogIn() {
               </button>
               <span className="extra-line-login">
                 <span>Don't have an account?</span>
-                <Link to="/sign_up">Sign Up</Link>
+                <Link to="/signup">Sign Up</Link>
               </span>
             </form>
           </div>
@@ -93,4 +93,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default Login;
