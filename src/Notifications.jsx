@@ -15,16 +15,17 @@ function Notifications() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedNotifications =
-      JSON.parse(localStorage.getItem("notifications")) || [];
-    setNotifications(storedNotifications);
+    fetchNotifications();
   }, []);
 
-  useEffect(() => {
-    const storedReadNotifications =
-      JSON.parse(localStorage.getItem("readNotifications")) || [];
-    setReadNotifications(storedReadNotifications);
-  }, []);
+  const fetchNotifications = () => {
+    fetch("http://193.168.49.29:8080/api/posts/")
+      .then((response) => response.json())
+      .then((data) => {
+        setNotifications(data);
+      })
+      .catch((error) => console.error("Error fetching notifications:", error));
+  };
 
   const handleNotificationClick = (postId) => {
     if (!readNotifications.includes(postId)) {
@@ -35,7 +36,6 @@ function Notifications() {
         JSON.stringify(updatedReadNotifications)
       );
     }
-
     navigate(`/posts/${postId}`);
   };
 
@@ -96,24 +96,24 @@ function Notifications() {
           </h3>
         </div>
         <SwipeableList>
-          {notifications
-            .filter(
-              (notification) => !readNotifications.includes(notification.id)
-            )
-            .map((notification) => (
-              <SwipeableListItem
-                key={notification.id}
-                trailingActions={trailingActions(notification.id)}
+          {notifications.map((notification) => (
+            <SwipeableListItem
+              key={notification.id}
+              trailingActions={trailingActions(notification.id)}
+            >
+              <div
+                className={`notification-item ${
+                  readNotifications.includes(notification.id)
+                    ? "read"
+                    : "unread"
+                }`}
+                onClick={() => handleNotificationClick(notification.id)}
               >
-                <div
-                  className="notification-item unread"
-                  onClick={() => handleNotificationClick(notification.id)}
-                >
-                  <h3>{notification.title}</h3>
-                  <p>{formatDateTime(notification.date_posted)}</p>
-                </div>
-              </SwipeableListItem>
-            ))}
+                <h3>{notification.title}</h3>
+                <p>{formatDateTime(notification.date_posted)}</p>
+              </div>
+            </SwipeableListItem>
+          ))}
         </SwipeableList>
       </div>
       <footer>

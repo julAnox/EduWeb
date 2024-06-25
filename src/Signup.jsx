@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style/signup.css";
 
 function Signup() {
@@ -23,33 +25,6 @@ function Signup() {
 
     try {
       localStorage.setItem("userRegData", JSON.stringify(userData));
-
-      const notifications =
-        JSON.parse(localStorage.getItem("notifications")) || [];
-      const newNotification = {
-        id: Date.now(),
-        title: "Registration Successful",
-        date_posted: new Date().toISOString(),
-      };
-      notifications.push(newNotification);
-
-      // Add example post notifications
-      const examplePostNotifications = [
-        {
-          id: Date.now() + 1,
-          title: "New Post: Welcome to our platform!",
-          date_posted: new Date().toISOString(),
-        },
-        {
-          id: Date.now() + 2,
-          title: "New Post: Tips to get started",
-          date_posted: new Date().toISOString(),
-        },
-      ];
-      notifications.push(...examplePostNotifications);
-
-      localStorage.setItem("notifications", JSON.stringify(notifications));
-
       navigate("/infoabout");
     } catch (error) {
       console.error("Error creating account:", error);
