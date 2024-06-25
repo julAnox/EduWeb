@@ -10,29 +10,35 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const userData = {
-      email: email,
-      password: password,
-    };
-
     try {
       const response = await fetch("http://193.168.49.29:8080/api/users/", {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(`Failed to log in: ${errorText}`);
+        throw new Error(`Failed to fetch users: ${errorText}`);
       }
 
-      const responseData = await response.json();
-      localStorage.setItem("userToken", responseData.token);
+      const users = await response.json();
+      console.log("Fetched users:", users);
 
-      navigate("/profile");
+      const user = users.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      console.log("Trying to log in with:", { email, password });
+      console.log("Found user:", user);
+
+      if (user) {
+        localStorage.setItem("userToken", user.token);
+        navigate("/profile");
+      } else {
+        alert("Invalid email or password");
+      }
     } catch (error) {
       console.error("Error logging in:", error);
     }
