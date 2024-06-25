@@ -14,7 +14,7 @@
   background: rgb(197, 245, 245);
 }
 
-.navbar-notifications {
+.navbar-profile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,15 +22,23 @@
   background-color: rgb(255, 255, 255);
 }
 
-.navbar-notifications h2 {
+.navbar-profile h2 {
   margin: 0 10rem;
   color: black;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-.navbar-notifications h2:hover {
+.navbar-profile h2:hover {
   text-decoration: underline;
+}
+
+.notification-count {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .uvedi {
@@ -40,20 +48,35 @@
   margin-top: 20px;
 }
 
+.notification-item.read {
+  background-color: #e0e0e0;
+}
+
 .notification-item {
-  border: 1px solid #ccc;
+  width: 100%;
   padding: 10px;
-  margin: 10px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .notification-item.unread {
-  background-color: #f9f9f9;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-left: 5px solid #00ff2a;
 }
 
-.notification-item.read {
-  background-color: #e0e0e0;
+.delete-action {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 0, 0);
 }
 
 .notification-item h3 {
@@ -89,7 +112,7 @@ footer p {
   cursor: pointer;
 }
 
-.footer-bottom-notifications {
+.footer-bottom-profile {
   margin-top: 10px;
 }
 

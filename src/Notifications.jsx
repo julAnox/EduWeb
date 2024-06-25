@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  SwipeableList,
+  SwipeableListItem,
+  SwipeAction,
+  TrailingActions,
+} from "react-swipeable-list";
+import "react-swipeable-list/dist/styles.css";
 import "./style/notifications.css";
 
 function Notifications() {
@@ -8,12 +15,9 @@ function Notifications() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://193.168.49.29:8080/api/posts/")
-      .then((response) => response.json())
-      .then((data) => {
-        setNotifications(data);
-      })
-      .catch((error) => console.error("Error fetching notifications:", error));
+    const storedNotifications =
+      JSON.parse(localStorage.getItem("notifications")) || [];
+    setNotifications(storedNotifications);
   }, []);
 
   useEffect(() => {
@@ -31,8 +35,28 @@ function Notifications() {
         JSON.stringify(updatedReadNotifications)
       );
     }
+
     navigate(`/posts/${postId}`);
   };
+
+  const handleNotificationDelete = (postId) => {
+    const updatedNotifications = notifications.filter(
+      (notification) => notification.id !== postId
+    );
+    setNotifications(updatedNotifications);
+    localStorage.setItem("notifications", JSON.stringify(updatedNotifications));
+  };
+
+  const trailingActions = (postId) => (
+    <TrailingActions>
+      <SwipeAction
+        destructive={true}
+        onClick={() => handleNotificationDelete(postId)}
+      >
+        <div className="delete-action">Delete</div>
+      </SwipeAction>
+    </TrailingActions>
+  );
 
   const formatDateTime = (dateTime) => {
     const date = new Date(dateTime);
@@ -61,20 +85,36 @@ function Notifications() {
         </Link>
       </div>
       <div className="uvedi">
-        {notifications
-          .filter(
-            (notification) => !readNotifications.includes(notification.id)
-          )
-          .map((notification) => (
-            <div
-              key={notification.id}
-              className="notification-item unread"
-              onClick={() => handleNotificationClick(notification.id)}
-            >
-              <h3>{notification.title}</h3>
-              <p>{formatDateTime(notification.date_posted)}</p>
-            </div>
-          ))}
+        <div className="notification-count">
+          <h3>
+            Unread Notifications:{" "}
+            {
+              notifications.filter(
+                (notification) => !readNotifications.includes(notification.id)
+              ).length
+            }
+          </h3>
+        </div>
+        <SwipeableList>
+          {notifications
+            .filter(
+              (notification) => !readNotifications.includes(notification.id)
+            )
+            .map((notification) => (
+              <SwipeableListItem
+                key={notification.id}
+                trailingActions={trailingActions(notification.id)}
+              >
+                <div
+                  className="notification-item unread"
+                  onClick={() => handleNotificationClick(notification.id)}
+                >
+                  <h3>{notification.title}</h3>
+                  <p>{formatDateTime(notification.date_posted)}</p>
+                </div>
+              </SwipeableListItem>
+            ))}
+        </SwipeableList>
       </div>
       <footer>
         <div className="footer-content-profile">
