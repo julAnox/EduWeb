@@ -16,9 +16,20 @@ function Notifications() {
       .catch((error) => console.error("Error fetching notifications:", error));
   }, []);
 
+  useEffect(() => {
+    const storedReadNotifications =
+      JSON.parse(localStorage.getItem("readNotifications")) || [];
+    setReadNotifications(storedReadNotifications);
+  }, []);
+
   const handleNotificationClick = (postId) => {
     if (!readNotifications.includes(postId)) {
-      setReadNotifications([...readNotifications, postId]);
+      const updatedReadNotifications = [...readNotifications, postId];
+      setReadNotifications(updatedReadNotifications);
+      localStorage.setItem(
+        "readNotifications",
+        JSON.stringify(updatedReadNotifications)
+      );
     }
     navigate(`/posts/${postId}`);
   };
@@ -50,18 +61,20 @@ function Notifications() {
         </Link>
       </div>
       <div className="uvedi">
-        {notifications.map((notification) => (
-          <div
-            key={notification.id}
-            className={`notification-item ${
-              readNotifications.includes(notification.id) ? "read" : "unread"
-            }`}
-            onClick={() => handleNotificationClick(notification.id)}
-          >
-            <h3>{notification.title}</h3>
-            <p>{formatDateTime(notification.date_posted)}</p>
-          </div>
-        ))}
+        {notifications
+          .filter(
+            (notification) => !readNotifications.includes(notification.id)
+          )
+          .map((notification) => (
+            <div
+              key={notification.id}
+              className="notification-item unread"
+              onClick={() => handleNotificationClick(notification.id)}
+            >
+              <h3>{notification.title}</h3>
+              <p>{formatDateTime(notification.date_posted)}</p>
+            </div>
+          ))}
       </div>
       <footer>
         <div className="footer-content-profile">

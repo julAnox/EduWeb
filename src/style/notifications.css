@@ -43,7 +43,7 @@
 .notification-item {
   border: 1px solid #ccc;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
