@@ -34,7 +34,7 @@ function Login() {
       console.log("Found user:", user);
 
       if (user) {
-        localStorage.setItem("userToken", user.token);
+        localStorage.setItem("userData", JSON.stringify(user));
         navigate("/profile");
       } else {
         alert("Invalid email or password");

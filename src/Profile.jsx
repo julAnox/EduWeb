@@ -57,8 +57,6 @@ function Profile() {
 
       const responseData = await response.json();
       localStorage.setItem("userData", JSON.stringify(responseData));
-
-      navigate("/profile");
     } catch (error) {
       console.error("Error saving profile:", error);
     }
@@ -101,7 +99,6 @@ function Profile() {
             <h2>
               Name: <span>&nbsp;&nbsp;{userData.name}</span>
             </h2>
-
             <h2>
               Surname: <span>&nbsp;&nbsp;{userData.surname}</span>
             </h2>
