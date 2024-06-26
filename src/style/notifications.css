@@ -48,10 +48,6 @@
   margin-top: 20px;
 }
 
-.notification-item.read {
-  background-color: #e0e0e0;
-}
-
 .notification-item {
   width: 100%;
   padding: 10px;
@@ -60,6 +56,10 @@
   border-radius: 5px;
   margin-bottom: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item.read {
+  border-left: 5px solid #a3a3a3;
 }
 
 .notification-item.unread {

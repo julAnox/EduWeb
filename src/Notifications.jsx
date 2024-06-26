@@ -44,7 +44,17 @@ function Notifications() {
       (notification) => notification.id !== postId
     );
     setNotifications(updatedNotifications);
+
+    const updatedReadNotifications = readNotifications.filter(
+      (notificationId) => notificationId !== postId
+    );
+    setReadNotifications(updatedReadNotifications);
+
     localStorage.setItem("notifications", JSON.stringify(updatedNotifications));
+    localStorage.setItem(
+      "readNotifications",
+      JSON.stringify(updatedReadNotifications)
+    );
   };
 
   const trailingActions = (postId) => (
