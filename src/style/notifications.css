@@ -77,12 +77,13 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  margin-left: 4px;
+  margin-left: 10px;
   margin-top: 76px;
   width: 150px;
   height: 30px;
   border: none;
-  background-color: white;
+  color: white;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
 }
 
 .delete-action {
