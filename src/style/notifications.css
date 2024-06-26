@@ -82,8 +82,8 @@
   width: 150px;
   height: 30px;
   border: none;
-  color: white;
-  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  color: black;
+  background: linear-gradient(#b0dae2 100.62%, #68bed1 30.62%, #85c4d1 30.62%);
 }
 
 .delete-action {
