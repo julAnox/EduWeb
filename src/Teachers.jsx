@@ -122,7 +122,9 @@ function Teachers() {
               </div>
               <div className="edu-teachers">
                 <h2>{teacher.name}</h2>
-                <Link to="/Timetable">
+                <Link
+                  to={`/timetable?teacher=${encodeURIComponent(teacher.name)}`}
+                >
                   <button className="button-teachers">View schedule</button>
                 </Link>
               </div>

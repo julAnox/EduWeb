@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./style/timetable.css";
 
 function Timetable() {
@@ -30,6 +30,16 @@ function Timetable() {
   const [groupNumber, setGroupNumber] = useState("");
   const [teacherName, setTeacherName] = useState("");
   const [scheduleText, setScheduleText] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const teacher = params.get("teacher");
+    if (teacher) {
+      const firstName = teacher.split(" ")[0];
+      setTeacherName(firstName);
+    }
+  }, [location]);
 
   useEffect(() => {
     const teacherInput = document.querySelector("#teacherNameInput");
@@ -170,6 +180,7 @@ function Timetable() {
             <input
               type="text"
               id="teacherNameInput"
+              value={teacherName}
               onChange={(e) => setTeacherName(e.target.value)}
             />
             <button
