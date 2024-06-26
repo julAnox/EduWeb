@@ -59,7 +59,10 @@
 }
 
 .notification-item.read {
-  border-left: 5px solid #a3a3a3;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-left: 5px solid #000000;
 }
 
 .notification-item.unread {
@@ -67,6 +70,19 @@
   margin: 10px;
   padding: 10px;
   border-left: 5px solid #00ff2a;
+}
+
+.uvedi button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-left: 4px;
+  margin-top: 76px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  background-color: white;
 }
 
 .delete-action {

@@ -16,6 +16,10 @@ function Notifications() {
 
   useEffect(() => {
     fetchNotifications();
+    const storedReadNotifications = localStorage.getItem("readNotifications");
+    if (storedReadNotifications) {
+      setReadNotifications(JSON.parse(storedReadNotifications));
+    }
   }, []);
 
   const fetchNotifications = () => {
@@ -55,6 +59,11 @@ function Notifications() {
       "readNotifications",
       JSON.stringify(updatedReadNotifications)
     );
+  };
+
+  const handleMarkAllAsUnread = () => {
+    setReadNotifications([]);
+    localStorage.setItem("readNotifications", JSON.stringify([]));
   };
 
   const trailingActions = (postId) => (
@@ -124,6 +133,12 @@ function Notifications() {
               </div>
             </SwipeableListItem>
           ))}
+          <button
+            onClick={handleMarkAllAsUnread}
+            className="mark-all-unread-button"
+          >
+            Mark All as Unread
+          </button>
         </SwipeableList>
       </div>
       <footer>
